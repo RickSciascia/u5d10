@@ -29,4 +29,11 @@ public class ErrorHandler {
     public ErrorDTO handleNotFoundEx(NotFoundException ex) {
         return new ErrorDTO(ex.getMessage(),LocalDateTime.now());
     }
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
+    public ErrorDTO handleGenericError(Exception ex) {
+        ex.printStackTrace();
+        return new ErrorDTO("C'è stato un problema con il server! Siamo al lavoro per sistemarlo!", LocalDateTime.now());
+    }
 }
