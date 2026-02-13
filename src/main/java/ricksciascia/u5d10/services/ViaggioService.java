@@ -8,6 +8,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ricksciascia.u5d10.entities.Viaggio;
 import ricksciascia.u5d10.exceptions.NotFoundException;
+import ricksciascia.u5d10.payloads.StatusViaggioDTO;
 import ricksciascia.u5d10.payloads.ViaggioDTO;
 import ricksciascia.u5d10.repositories.ViaggioRepository;
 
@@ -51,4 +52,17 @@ public class ViaggioService {
         Viaggio trovato = this.findById(idViaggio);
         this.viaggioRepository.delete(trovato);
     }
+
+//    public Viaggio updateStatusViaggio(long idViaggio, StatusViaggioDTO payload) {
+//        Viaggio trovato = this.findById(idViaggio);
+//        trovato.setCompletato(payload.completato());
+//        String result = "";
+//        if(payload.completato()) {
+//            result = "Completato";
+//        }else {
+//            result = "Non completato";
+//        }
+//        System.out.println("Status viaggio cambiato in " + result);
+//        return this.viaggioRepository.save(trovato);
+//    }
 }

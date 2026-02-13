@@ -8,6 +8,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import ricksciascia.u5d10.entities.Viaggio;
 import ricksciascia.u5d10.exceptions.ValException;
+import ricksciascia.u5d10.payloads.ErrorDTO;
+import ricksciascia.u5d10.payloads.StatusViaggioDTO;
 import ricksciascia.u5d10.payloads.ViaggioDTO;
 import ricksciascia.u5d10.services.ViaggioService;
 
@@ -68,5 +70,19 @@ public class ViaggioController {
     public void deleteViaggio(@PathVariable long idViaggio) {
         this.viaggioService.deleteById(idViaggio);
     }
+//
+////    PATCH
+//    @PatchMapping("/{idViaggio}")
+//    public Viaggio updateStatusViaggio(@RequestBody @Validated StatusViaggioDTO payload, BindingResult validationResult,@PathVariable long idViaggio) {
+//        if(validationResult.hasErrors()) {
+//            List<String> listaErrori = validationResult.getFieldErrors()
+//                    .stream().map(fieldError -> fieldError.getDefaultMessage())
+//                    .toList();
+//
+//            throw new ValException(listaErrori);
+//        } else {
+//            return this.viaggioService.updateStatusViaggio(idViaggio,payload);
+//        }
+//    }
 
 }
